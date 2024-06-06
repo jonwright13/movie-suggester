@@ -10,9 +10,9 @@ import {
   AppContextProviderProps,
   Token,
   API_KEY,
-} from "../types/interfaceProps.ts";
-import { usePrefs } from "./usePrefs.ts";
-import useInitialFetch from "./useInitialFetch.ts";
+} from "../types/interfaceProps";
+import { usePrefs } from "./usePrefs";
+import useInitialFetch from "./useInitialFetch";
 
 const AppContext = createContext<AppContextProps | null>(null);
 

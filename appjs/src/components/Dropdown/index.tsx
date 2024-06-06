@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FC } from "react";
-import { SelectContainer, Label, Select, Option } from "../../style/style.ts";
-import { type } from "../../types/apiProps.ts";
+import { SelectContainer, Label, Select, Option } from "../../style/style";
+import { type } from "../../types/apiProps";
 
 interface DropdownProps {
   label: string;

@@ -1,5 +1,5 @@
-import { SelectionProps } from "../../types/interfaceProps.ts";
-import { Movie, Tv } from "../../types/apiProps.ts";
+import { SelectionProps } from "../../types/interfaceProps";
+import { Movie, Tv } from "../../types/apiProps";
 
 export interface MovieCardProps {
   title: Movie | Tv | null;

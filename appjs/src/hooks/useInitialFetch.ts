@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import fetchInitialData from "../api/fetchInitialData.ts";
+import fetchInitialData from "../api/fetchInitialData";
 import { DropdownsProps, Token } from "../types/interfaceProps";
 
 const useInitialFetch = (token: Token | null) => {

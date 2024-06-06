@@ -1,7 +1,7 @@
 import React, { FC, useMemo } from "react";
 import { IconContext } from "react-icons/lib";
 import { IoStar, IoStarHalf, IoStarOutline } from "react-icons/io5";
-import { StarRow } from "./style.ts";
+import { StarRow } from "./style";
 
 interface StarRatingProps {
   value?: number;
@@ -9,8 +9,7 @@ interface StarRatingProps {
 }
 
 const StarRating: FC<StarRatingProps> = ({ value, maxValue = 10 }) => {
-  let starValue = value;
-  if (starValue === null || starValue === undefined) starValue = 0;
+  let starValue: number = value === null || value === undefined ? 0 : value;
 
   const stars = useMemo(() => {
     const score = (starValue * 10) / maxValue;

@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FC } from "react";
-import GenreSwitchSelect from "../GenreSelect/index.tsx";
-import MovieCard from "../MovieCard/index.tsx";
+import GenreSwitchSelect from "../GenreSelect/index";
+import MovieCard from "../MovieCard/index";
 import fetchDiscover from "../../api/fetchDiscover";
 import { useApp } from "../../hooks/useAppContext";
 import { SelectionProps, Mode } from "../../types/interfaceProps";
@@ -17,7 +17,7 @@ import {
   Select,
   Label,
   Option,
-} from "../../style/style.ts";
+} from "../../style/style";
 
 const Suggester: FC<{ mode: Mode }> = ({ mode }) => {
   const { token, storedValue, dropdowns } = useApp();

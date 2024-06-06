@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import GenreSwitchSelectProps from "./interface.ts";
-import Dropdown from "../Dropdown/index.tsx";
+import GenreSwitchSelectProps from "./interface";
+import Dropdown from "../Dropdown/index";
 
 const GenreSwitchSelect: FC<GenreSwitchSelectProps> = ({
   selection,

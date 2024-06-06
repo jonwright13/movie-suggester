@@ -1,7 +1,7 @@
 import axios from "axios";
-import { BASE_URL } from "./base.ts";
-import { Movie, Tv } from "../types/apiProps.ts";
-import { Token } from "../types/interfaceProps.ts";
+import { BASE_URL } from "./base";
+import { Movie, Tv } from "../types/apiProps";
+import { Token } from "../types/interfaceProps";
 
 // Rate limiting is around 50 requests per second: https://developer.themoviedb.org/docs/rate-limiting
 

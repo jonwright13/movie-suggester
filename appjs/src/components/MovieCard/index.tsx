@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import StarRating from "../StarRating/index.tsx";
-import { usePrefs } from "../../hooks/usePrefs.ts";
-import { Icon } from "../Icons/index.tsx";
-import { Quality, Qualities, Movie, Tv } from "../../types/apiProps.ts";
-import { Name } from "../../types/interfaceProps.ts";
-import { MovieCardProps } from "./interface.ts";
+import StarRating from "../StarRating/index";
+import { usePrefs } from "../../hooks/usePrefs";
+import { Icon } from "../Icons/index";
+import { Quality, Qualities, Movie, Tv } from "../../types/apiProps";
+import { Name } from "../../types/interfaceProps";
+import { MovieCardProps } from "./interface";
 import {
   Card,
   Container,
@@ -13,7 +13,7 @@ import {
   Description,
   ButtonsContainer,
   Poster,
-} from "./style.ts";
+} from "./style";
 
 const baseUrl: string = "https://image.tmdb.org/t/p/";
 
@@ -87,6 +87,12 @@ const MovieCard: FC<MovieCardProps> = ({ title, selection, handleGet }) => {
             />
           </ButtonsContainer>
         </Container>
+      </Card>
+    );
+  } else {
+    return (
+      <Card>
+        <Title>No Film Found</Title>
       </Card>
     );
   }

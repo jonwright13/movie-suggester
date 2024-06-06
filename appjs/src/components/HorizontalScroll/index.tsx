@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import useHover from "./utils/useHover.ts";
-import useElementSize from "./utils/useElementSize.ts";
+import useHover from "./utils/useHover";
+import useElementSize from "./utils/useElementSize";
 import {
   Wrapper,
   ArrowLeft,
   ArrowRight,
   ScrollableArea,
   ArrowButton,
-} from "./style.ts";
-import { HorizontalScrollProps } from "./interface.ts";
+} from "./style";
+import { HorizontalScrollProps } from "./interface";
 
 const HorizontalScroll = ({ children, setPage }: HorizontalScrollProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);

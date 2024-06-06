@@ -1,9 +1,9 @@
 import React, { FC, useState } from "react";
-import { Icon } from "../Icons/index.tsx";
-import { Movie, Tv } from "../../types/apiProps.ts";
-import { Name } from "../../types/interfaceProps.ts";
-import { Poster, Img, Controls } from "./style.ts";
-import { useApp } from "../../hooks/useAppContext.tsx";
+import { Icon } from "../Icons/index";
+import { Movie, Tv } from "../../types/apiProps";
+import { Name } from "../../types/interfaceProps";
+import { Poster, Img, Controls } from "./style";
+import { useApp } from "../../hooks/useAppContext";
 
 const baseUrl = "https://image.tmdb.org/t/p/";
 

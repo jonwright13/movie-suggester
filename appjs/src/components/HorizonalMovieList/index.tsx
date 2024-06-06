@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import HorizontalScroll from "../HorizontalScroll/index.tsx";
-import MoviePoster from "../MoviePoster/index.tsx";
-import { Column, Title, Content, List } from "./style.ts";
-import { HorizontalMovieListProps } from "./interface.ts";
-import fetchDetails from "../../api/fetchById.ts";
-import { useApp } from "../../hooks/useAppContext.tsx";
+import HorizontalScroll from "../HorizontalScroll/index";
+import MoviePoster from "../MoviePoster/index";
+import { Column, Title, Content, List } from "./style";
+import { HorizontalMovieListProps } from "./interface";
+import fetchDetails from "../../api/fetchById";
+import { useApp } from "../../hooks/useAppContext";
 
 const HorizonalMovieList = <T extends number>({
   header,
@@ -17,7 +17,7 @@ const HorizonalMovieList = <T extends number>({
   const getTitles = async () => {
     const start = Math.max((page - 3) * 2, 0);
     const end = Math.min(page * 3, movies.length);
-    const movieList: T[] = movies.reverse();
+    const movieList: T[] = [...movies].reverse();
 
     const result = await Promise.all(
       movieList.map(async (item, index) => {
@@ -42,21 +42,17 @@ const HorizonalMovieList = <T extends number>({
     // eslint-disable-next-line
   }, [page, movies]);
 
-  if (titles.length > 0) {
-    if (titles.some((i) => i !== null))
-      return (
-        <Column>
-          <Content>
-            <Title>{header}</Title>
-          </Content>
+  return (
+    <Column>
+      <Content>
+        <Title>{header}</Title>
+      </Content>
 
-          <HorizontalScroll setPage={setPage}>
-            <List>{titles}</List>
-          </HorizontalScroll>
-        </Column>
-      );
-    return null;
-  }
+      <HorizontalScroll setPage={setPage}>
+        <List>{titles}</List>
+      </HorizontalScroll>
+    </Column>
+  );
 };
 
 export default HorizonalMovieList;

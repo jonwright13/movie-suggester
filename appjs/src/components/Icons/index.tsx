@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { IconContainer } from "./style.ts";
-import { IconProps } from "./interface.ts";
-import IconSwitch from "./IconSwitch.tsx";
+import { IconContainer } from "./style";
+import { IconProps } from "./interface";
+import IconSwitch from "./IconSwitch";
 
 export const Icon: FC<IconProps> = ({ type, title, checked, onClick }) => {
   const handleClick = () => {

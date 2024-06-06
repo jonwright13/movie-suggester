@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ChangeEvent } from "react";
-import { type } from "../types/apiProps.ts";
+import { type } from "../types/apiProps";
 
 export const Button = styled.button`
   border: none;

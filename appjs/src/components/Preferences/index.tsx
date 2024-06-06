@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import HorizonalMovieList from "../HorizonalMovieList/index.tsx";
-import { Container } from "./style.ts";
-import { Name } from "../../types/interfaceProps.ts";
-import { useApp } from "../../hooks/useAppContext.tsx";
+import React from "react";
+import HorizonalMovieList from "../HorizonalMovieList/index";
+import { Container } from "./style";
+import { Name } from "../../types/interfaceProps";
+import { useApp } from "../../hooks/useAppContext";
 
-const Preferences: FC = () => {
+const Preferences = () => {
   const { storedValue } = useApp();
 
   const keys: string[] = ["watchlist", "watched", "ignore"];
@@ -21,6 +21,8 @@ const Preferences: FC = () => {
         ))}
       </Container>
     );
+  } else {
+    return <Container>Add some movies to your lists first.</Container>;
   }
 };
 

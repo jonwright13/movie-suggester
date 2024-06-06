@@ -1,13 +1,13 @@
 import React, { useState, FC } from "react";
-import Preferences from "../Preferences/index.tsx";
-import { Mode } from "../../types/interfaceProps.ts";
-import Suggester from "../Suggester/index.tsx";
+import Preferences from "../Preferences/index";
+import { Mode } from "../../types/interfaceProps";
+import Suggester from "../Suggester/index";
 import {
   AppHeader,
   Header,
   ControlsContainer,
   ChangeModeButton,
-} from "./style.ts";
+} from "./style";
 
 const App: FC = () => {
   const [mode, setMode] = useState<Mode>("suggester");

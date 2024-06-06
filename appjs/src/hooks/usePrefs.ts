@@ -1,6 +1,6 @@
-import { useLocalStorage } from "./useLocalStorage.ts";
-import { Preferences, Name } from "../types/interfaceProps.ts";
-import { Movie, Tv } from "../types/apiProps.ts";
+import { useLocalStorage } from "./useLocalStorage";
+import { Preferences, Name } from "../types/interfaceProps";
+import { Movie, Tv } from "../types/apiProps";
 
 const defaultValue: Preferences = {
   watchlist: [],

@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { SelectionProps, DropdownsProps } from "../../types/interfaceProps.ts";
+import { SelectionProps, DropdownsProps } from "../../types/interfaceProps";
 
 export default interface GenreSwitchSelectProps {
   selection: SelectionProps;

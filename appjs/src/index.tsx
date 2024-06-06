@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./components/App/index.tsx";
-import { AppContextProvider } from "./hooks/useAppContext.tsx";
+import App from "./components/App/index";
+import { AppContextProvider } from "./hooks/useAppContext";
 import "./index.css";
 
 const root = ReactDOM.createRoot(
