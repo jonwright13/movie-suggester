@@ -5,6 +5,8 @@ import { Column, Title, Content, List } from "./style";
 import { HorizontalMovieListProps } from "./interface";
 import fetchDetails from "../../api/fetchById";
 import { useApp } from "../../hooks/useAppContext";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const HorizonalMovieList = <T extends number>({
   header,
@@ -14,8 +16,10 @@ const HorizonalMovieList = <T extends number>({
   const { token } = useApp();
   const [page, setPage] = useState<number>(1);
   const [titles, setTitles] = useState<any[]>([]);
+  const [loading, setLoading] = useState<Boolean>(true);
 
   const getTitles = async () => {
+    setLoading(true);
     const start = Math.max((page - 3) * 2, 0);
     const end = Math.min(page * 3, movies.length);
     const movieList: T[] = [...movies].reverse();
@@ -41,14 +45,19 @@ const HorizonalMovieList = <T extends number>({
         }
       })
     );
-
-    setTitles(result);
+    setLoading((prev) => {
+      setTitles(result);
+      return false;
+    });
   };
 
   useEffect(() => {
     getTitles();
+    setLoading(true);
     // eslint-disable-next-line
   }, [page, movies]);
+
+  console.log(loading);
 
   return (
     <Column>
@@ -56,9 +65,15 @@ const HorizonalMovieList = <T extends number>({
         <Title>{header}</Title>
       </Content>
 
-      <HorizontalScroll setPage={setPage}>
-        <List>{titles}</List>
-      </HorizontalScroll>
+      {loading ? (
+        <>
+          <Skeleton height={"23vh"} baseColor="#282c34" />
+        </>
+      ) : (
+        <HorizontalScroll setPage={setPage}>
+          <List>{titles}</List>
+        </HorizontalScroll>
+      )}
     </Column>
   );
 };

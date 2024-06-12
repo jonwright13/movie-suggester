@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   border: none;
@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const PopoverContent = styled.div<{
-  isVisible: Boolean;
+  isVisible: boolean;
 }>`
   display: flex;
   align-items: center;
@@ -18,20 +18,23 @@ export const PopoverContent = styled.div<{
   width: 50vw;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow for depth. */
   transform: translate(50%, 100%);
-  visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
+  ${(props) => css`
+    visibility: ${props.isVisible ? "visible" : "hidden"};
+  `}
 `;
 
 export const PopoverContainer = styled.div<{
-  isVisible: Boolean;
+  isVisible: boolean;
 }>`
   position: fixed;
-  background-color: ${(props) =>
-    props.isVisible ? "rgba(0, 0, 0, 0.5)" : "transparent"};
   width: 100vw;
   height: 100vh;
   z-index: 9999;
   top: 0;
   left: 0;
-  visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
+  ${(props) => css`
+    visibility: ${props.isVisible ? "visible" : "hidden"};
+    background-color: ${props.isVisible ? "rgba(0, 0, 0, 0.5)" : "transparent"};
+  `}
   transition: all ease 300ms;
 `;

@@ -16,6 +16,8 @@ const Preferences = () => {
     setTitle(null);
   };
 
+  const isVisible = title !== null;
+
   if (storedValue) {
     return (
       <Container>
@@ -27,11 +29,17 @@ const Preferences = () => {
             setTitle={setTitle}
           />
         ))}
-        <PopoverContainer isVisible={title !== null} onClick={handleClickAway}>
-          <PopoverContent isVisible={title !== null}>
-            <MovieCard title={title} selection={selection} handleGet={false} />
-          </PopoverContent>
-        </PopoverContainer>
+        {
+          <PopoverContainer isVisible={isVisible} onClick={handleClickAway}>
+            <PopoverContent isVisible={isVisible}>
+              <MovieCard
+                title={title}
+                selection={selection}
+                handleGet={false}
+              />
+            </PopoverContent>
+          </PopoverContainer>
+        }
       </Container>
     );
   } else {

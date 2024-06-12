@@ -46,9 +46,7 @@ const Suggester: FC<{ mode: Mode }> = ({ mode }) => {
         <SelectContainer>
           <Label>Type</Label>
           <Select placeholder="all" name="type" onChange={handleChange}>
-            <Option value={selection.type} disabled hidden>
-              {selection.type}
-            </Option>
+            <Option value={selection.type}>{selection.type}</Option>
             {dropdowns.type?.map((item, index) => (
               <Option key={index} value={item}>
                 {item}
@@ -68,9 +66,7 @@ const Suggester: FC<{ mode: Mode }> = ({ mode }) => {
             name="language"
             onChange={handleChange}
           >
-            <Option value={selection.language} disabled hidden>
-              {selection.language}
-            </Option>
+            <Option value={selection.language}>{selection.language}</Option>
             {dropdowns.languages.map((item, index) => (
               <Option key={index} value={item.iso_639_1}>
                 {item.english_name}
