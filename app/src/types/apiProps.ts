@@ -1,6 +1,8 @@
 export type type = "movie" | "tv" | "all";
 export type Quality = "low" | "medium" | "high" | "original";
 
+export type Title = Movie | Tv | null;
+
 export interface Endpoints {
   [key: string]: string;
 }

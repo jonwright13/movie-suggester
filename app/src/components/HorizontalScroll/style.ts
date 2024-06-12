@@ -4,38 +4,33 @@ export const Wrapper = styled.div`
   position: relative;
 `;
 
-export const ArrowWrapper = styled.div`
+export const ArrowWrapper = styled.div<{
+  isVisible: boolean;
+}>`
   z-index: 1;
   display: flex;
   width: 250px;
+
   position: absolute;
   top: 0;
   bottom: 0;
+
   pointer-events: none;
+
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
   transition: all ease 300ms;
 `;
 
-export const ArrowLeft = styled(ArrowWrapper)<{
-  isVisible: boolean;
-}>`
+export const ArrowLeft = styled(ArrowWrapper)`
   left: 0;
-  background-image: linear-gradient(
-    to right,
-    rgb(40, 44, 52, 1),
-    rgb(40, 44, 52, 0)
-  );
+  background-image: linear-gradient(to right, #282c34 10%, transparent 100%);
 `;
 
-export const ArrowRight = styled(ArrowWrapper)<{
-  isVisible: boolean;
-}>`
+export const ArrowRight = styled(ArrowWrapper)`
   justify-content: flex-end;
   right: 0;
-  background-image: linear-gradient(
-    to left,
-    rgb(40, 44, 52, 1),
-    rgb(40, 44, 52, 0)
-  );
+  background-image: linear-gradient(to left, #282c34 10%, transparent 100%);
 `;
 
 export const ScrollableArea = styled.div<{ onScroll: any }>`

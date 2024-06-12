@@ -1,8 +1,8 @@
 import { SelectionProps } from "../../types/interfaceProps";
-import { Movie, Tv } from "../../types/apiProps";
+import { Title } from "../../types/apiProps";
 
 export interface MovieCardProps {
-  title: Movie | Tv | null;
+  title: Title;
   selection: SelectionProps;
   handleGet: any;
 }

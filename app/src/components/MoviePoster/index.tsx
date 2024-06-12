@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Icon } from "../Icons/index";
-import { Movie, Tv } from "../../types/apiProps";
+import { Movie, Tv, Title } from "../../types/apiProps";
 import { Name } from "../../types/interfaceProps";
 import { Poster, Img, Controls } from "./style";
 import { useApp } from "../../hooks/useAppContext";
@@ -10,14 +10,19 @@ const baseUrl = "https://image.tmdb.org/t/p/";
 interface MoviePosterProps {
   movie: Movie & Tv;
   header: string;
+  setTitle: React.Dispatch<React.SetStateAction<Title>>;
 }
 
-const MoviePoster: FC<MoviePosterProps> = ({ movie, header }) => {
+const MoviePoster: FC<MoviePosterProps> = ({ movie, header, setTitle }) => {
   const { handleAddRating } = useApp();
   const [show, setShow] = useState(false);
 
   const handleClick = (name: Name) => {
     handleAddRating(name, movie);
+  };
+
+  const handleSelect = () => {
+    setTitle(movie);
   };
 
   return (
@@ -26,7 +31,11 @@ const MoviePoster: FC<MoviePosterProps> = ({ movie, header }) => {
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
     >
-      <Img src={`${baseUrl}w780${movie.poster_path}`} alt="" />
+      <Img
+        src={`${baseUrl}w780${movie.poster_path}`}
+        alt=""
+        onClick={handleSelect}
+      />
       {show ? (
         <Controls className="poster-controls">
           <Icon

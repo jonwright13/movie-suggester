@@ -3,7 +3,7 @@ import GenreSwitchSelect from "../GenreSelect/index";
 import MovieCard from "../MovieCard/index";
 import fetchDiscover from "../../api/fetchDiscover";
 import { useApp } from "../../hooks/useAppContext";
-import { SelectionProps, Mode } from "../../types/interfaceProps";
+import { Mode } from "../../types/interfaceProps";
 import { Movie, Tv } from "../../types/apiProps";
 import {
   SuggesterContainer,
@@ -20,12 +20,7 @@ import {
 } from "../../style/style";
 
 const Suggester: FC<{ mode: Mode }> = ({ mode }) => {
-  const { token, storedValue, dropdowns } = useApp();
-  const [selection, setSelection] = useState<SelectionProps>({
-    type: "movie",
-    genre: "all",
-    language: "all",
-  });
+  const { token, storedValue, dropdowns, selection, setSelection } = useApp();
 
   const [title, setTitle] = useState<Movie | Tv | null | undefined>(null);
   const [error, setError] = useState<string>("");
@@ -51,7 +46,7 @@ const Suggester: FC<{ mode: Mode }> = ({ mode }) => {
         <SelectContainer>
           <Label>Type</Label>
           <Select placeholder="all" name="type" onChange={handleChange}>
-            <Option value={selection.type} selected disabled hidden>
+            <Option value={selection.type} disabled hidden>
               {selection.type}
             </Option>
             {dropdowns.type?.map((item, index) => (
@@ -73,7 +68,7 @@ const Suggester: FC<{ mode: Mode }> = ({ mode }) => {
             name="language"
             onChange={handleChange}
           >
-            <Option value={selection.language} selected disabled hidden>
+            <Option value={selection.language} disabled hidden>
               {selection.language}
             </Option>
             {dropdowns.languages.map((item, index) => (

@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import HorizonalMovieList from "../HorizonalMovieList/index";
-import { Container } from "./style";
+import { Container, PopoverContainer, PopoverContent } from "./style";
+import { Title } from "../../types/apiProps";
 import { Name } from "../../types/interfaceProps";
 import { useApp } from "../../hooks/useAppContext";
+import MovieCard from "../MovieCard";
 
 const Preferences = () => {
-  const { storedValue } = useApp();
+  const { storedValue, selection } = useApp();
+  const [title, setTitle] = useState<Title>(null);
 
   const keys: string[] = ["watchlist", "watched", "ignore"];
+
+  const handleClickAway = () => {
+    setTitle(null);
+  };
 
   if (storedValue) {
     return (
@@ -17,8 +24,14 @@ const Preferences = () => {
             key={key}
             header={key}
             movies={storedValue[key as Name]}
+            setTitle={setTitle}
           />
         ))}
+        <PopoverContainer isVisible={title !== null} onClick={handleClickAway}>
+          <PopoverContent isVisible={title !== null}>
+            <MovieCard title={title} selection={selection} handleGet={false} />
+          </PopoverContent>
+        </PopoverContainer>
       </Container>
     );
   } else {

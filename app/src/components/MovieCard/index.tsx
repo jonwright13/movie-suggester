@@ -35,13 +35,17 @@ const getBackdropUrl = (path: string, quality: Quality = "medium"): string => {
   });
 };
 
-const MovieCard: FC<MovieCardProps> = ({ title, selection, handleGet }) => {
+const MovieCard: FC<MovieCardProps> = ({
+  title,
+  selection,
+  handleGet = false,
+}) => {
   const { storedValue, handleAddRating } = usePrefs();
 
   if (title !== null) {
     const handleRating = (name: Name) => {
       handleAddRating(name, title);
-      handleGet();
+      if (handleGet) handleGet();
     };
 
     const prefs = {
@@ -76,13 +80,13 @@ const MovieCard: FC<MovieCardProps> = ({ title, selection, handleGet }) => {
             <Icon
               type="watched"
               title="Watched"
-              checked={prefs.watchlist}
+              checked={prefs.watched}
               onClick={handleRating}
             />
             <Icon
               type="ignore"
               title="Ignore"
-              checked={prefs.watchlist}
+              checked={prefs.ignore}
               onClick={handleRating}
             />
           </ButtonsContainer>

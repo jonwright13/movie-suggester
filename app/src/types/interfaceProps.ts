@@ -28,6 +28,8 @@ export interface AppContextProps {
   storedValue: Preferences;
   handleAddRating: (name: Name, item: Movie | Tv) => void;
   dropdowns: DropdownsProps;
+  selection: SelectionProps;
+  setSelection: React.Dispatch<React.SetStateAction<SelectionProps>>;
 }
 
 export interface AppContextProviderProps {

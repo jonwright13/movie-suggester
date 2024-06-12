@@ -9,6 +9,7 @@ import { useApp } from "../../hooks/useAppContext";
 const HorizonalMovieList = <T extends number>({
   header,
   movies,
+  setTitle,
 }: HorizontalMovieListProps<T>) => {
   const { token } = useApp();
   const [page, setPage] = useState<number>(1);
@@ -29,7 +30,14 @@ const HorizonalMovieList = <T extends number>({
           } else {
             data = { id: item, poster_path: "" };
           }
-          return <MoviePoster key={index} movie={data} header={header} />;
+          return (
+            <MoviePoster
+              key={index}
+              movie={data}
+              header={header}
+              setTitle={setTitle}
+            />
+          );
         }
       })
     );

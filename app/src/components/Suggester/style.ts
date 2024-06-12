@@ -7,6 +7,12 @@ export const SuggesterContainer = styled.div`
   align-content: center;
   justify-content: center;
   padding: 30px;
+  width: 50vw;
+
+  @media only screen and (max-device-width: 1024px) {
+    padding: 10px;
+    width: 90vw;
+  }
 `;
 
 export const ButtonContainer = styled.div`

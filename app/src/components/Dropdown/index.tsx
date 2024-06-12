@@ -25,7 +25,7 @@ const Dropdown: FC<DropdownProps> = ({
     <SelectContainer>
       <Label>{label}</Label>
       <Select placeholder={placeholder} name={name} onChange={onChange}>
-        <Option value={defaultOptionValue} selected disabled hidden>
+        <Option value={defaultOptionValue} disabled hidden>
           {defaultOptionText}
         </Option>
         {options.map((item, index) => (

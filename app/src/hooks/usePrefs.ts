@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { Preferences, Name } from "../types/interfaceProps";
 import { Movie, Tv } from "../types/apiProps";
@@ -25,6 +26,7 @@ export const usePrefs = () => {
     "preferences",
     defaultValue
   );
+  const [update, setUpdate] = useState(false);
 
   const addItem = (updatedValue: Preferences, name: Name, itemId: number) => {
     updatedValue[name] = [...updatedValue[name], itemId];
@@ -49,6 +51,7 @@ export const usePrefs = () => {
   };
 
   const handleAddRating = (name: Name, item: Movie | Tv): void => {
+    setUpdate(true);
     if (item !== null && item !== undefined && item.id !== undefined) {
       let updatedValue = { ...storedValue };
 
@@ -72,6 +75,7 @@ export const usePrefs = () => {
       }
       setStoredValue(updatedValue);
     }
+    setUpdate(false);
   };
 
   return { storedValue, handleAddRating };

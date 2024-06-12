@@ -7,19 +7,11 @@ export const AppHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
 `;
 
 export const Header = styled.h1`
   color: white;
-`;
-
-export const SelectContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
-  justify-content: space-between;
 `;
 
 export const ControlsContainer = styled.div`
@@ -31,6 +23,4 @@ export const ControlsContainer = styled.div`
 
 export const ChangeModeButton = styled(Button)`
   background-color: lightBlue;
-  width: 150px;
-  padding: 15px 0px;
 `;

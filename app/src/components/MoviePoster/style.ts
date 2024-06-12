@@ -10,12 +10,16 @@ export const Img = styled.img<{
   src: string;
   alt: string;
 }>`
-  height: 250px;
+  width: 10vw;
   margin-right: 20px;
-  width: 200px;
   object-fit: cover;
   border-radius: 4px;
   border: 1px solid #282c34;
+  cursor: pointer;
+
+  @media only screen and (max-device-width: 1024px) {
+    width: 20vw;
+  }
 `;
 
 export const Controls = styled.div`
