@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { Preferences, Name } from "../types/interfaceProps";
 import { Movie, Tv } from "../types/apiProps";

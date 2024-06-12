@@ -5,8 +5,6 @@ import { Column, Title, Content, List } from "./style";
 import { HorizontalMovieListProps } from "./interface";
 import fetchDetails from "../../api/fetchById";
 import { useApp } from "../../hooks/useAppContext";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 
 const HorizonalMovieList = <T extends number>({
   header,
@@ -57,23 +55,15 @@ const HorizonalMovieList = <T extends number>({
     // eslint-disable-next-line
   }, [page, movies]);
 
-  console.log(loading);
-
   return (
     <Column>
       <Content>
         <Title>{header}</Title>
       </Content>
 
-      {loading ? (
-        <>
-          <Skeleton height={"23vh"} baseColor="#282c34" />
-        </>
-      ) : (
-        <HorizontalScroll setPage={setPage}>
-          <List>{titles}</List>
-        </HorizontalScroll>
-      )}
+      <HorizontalScroll setPage={setPage}>
+        <List>{titles}</List>
+      </HorizontalScroll>
     </Column>
   );
 };

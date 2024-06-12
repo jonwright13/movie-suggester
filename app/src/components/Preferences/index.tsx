@@ -18,6 +18,8 @@ const Preferences = () => {
 
   const isVisible = title !== null;
 
+  console.log(storedValue);
+
   if (storedValue) {
     return (
       <Container>

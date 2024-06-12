@@ -48,6 +48,10 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({
     // eslint-disable-next-line
   }, []);
 
+  // useEffect(() => {
+  //   console.log("storedValue Changed");
+  // }, [storedValue, handleAddRating]);
+
   return (
     <AppContext.Provider
       value={{
